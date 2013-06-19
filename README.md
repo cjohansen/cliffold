@@ -1,5 +1,7 @@
 # Cliffold - Node CLI scaffolding
 
+A little known fact about CLIs is that they are a pain in the ass to write.
+
 Cliffold provides some utilities that are useful when writing CLIs. It uses
 [posix-argv-parser](http://github.com/busterjs/posix-argv-parser) for POSIX
 compliant ARGV parsing and provides utilities for managing loggers (to either
