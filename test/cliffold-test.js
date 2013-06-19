@@ -35,6 +35,16 @@ buster.testCase("Cliffold", {
         }.bind(this)));
     },
 
+    "prints option help": function (done) {
+        this.cli.helpOpt("-h", "--help");
+        this.cli.opt("-s", "--shh", { description: "Be quiet" });
+
+        this.cli.exec(["-h"], {}, done(function (error, cp) {
+            console.log(this.out());
+            assert.match(this.out(), "Be quiet");
+        }.bind(this)));
+    },
+
     "writes pid file": function (done) {
         var proc = new EventEmitter();
         proc.pid = 666;
