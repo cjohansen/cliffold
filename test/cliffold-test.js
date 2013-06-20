@@ -68,5 +68,13 @@ buster.testCase("Cliffold", {
     "exposes validators and types": function () {
         assert.equals(cliffold.validators, pap.validators);
         assert.equals(cliffold.types, pap.types);
+    },
+
+    "cli process formats help": function (done) {
+        this.cli.helpOpt("-h", "--help");
+
+        this.cli.exec([], {}, done(function (err, cp) {
+            assert.match(cp.formatHelp(), "--help");
+        }.bind(this)));
     }
 });

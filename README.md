@@ -133,3 +133,8 @@ provided.
 ## `cp.log`
 
 The logger object. An instance of [`Log`](https://npmjs.org/package/log).
+
+## `cp.formatHelp()`
+
+Formats help and returns it as a string. Useful e.g. when the cli fails for some
+reason.
