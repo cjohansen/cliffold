@@ -39,7 +39,7 @@ cli.pidFileOpt("-p", "--pid-file", process);
 process.on("SIGINT", function () { process.exit(); });
 process.on("SIGTERM", function () { process.exit(); });
 
-cli.exec(process.argv, process.env, function (error, cliProcess) {
+cli.exec(process.argv.slice(2), process.env, function (error, cliProcess) {
     cliProcess.options; // The posix-argv-parser parse result
 
     cliProcess.get("-f"); // Gets the value
