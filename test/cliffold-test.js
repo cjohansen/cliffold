@@ -2,6 +2,7 @@ var buster = require("buster");
 var assert = buster.assert;
 var refute = buster.refute;
 var cliffold = require("../lib/cliffold");
+var pap = require("posix-argv-parser");
 var EventEmitter = require("events").EventEmitter;
 var fs = require("fs");
 
@@ -40,7 +41,6 @@ buster.testCase("Cliffold", {
         this.cli.opt("-s", "--shh", { description: "Be quiet" });
 
         this.cli.exec(["-h"], {}, done(function (error, cp) {
-            console.log(this.out());
             assert.match(this.out(), "Be quiet");
         }.bind(this)));
     },
@@ -63,5 +63,10 @@ buster.testCase("Cliffold", {
         this.cli.exec(["-s", "42"], { "SHH": 21 }, done(function (err, cp) {
             assert.equals(cp.arg("-s"), 21);
         }));
+    },
+
+    "exposes validators and types": function () {
+        assert.equals(cliffold.validators, pap.validators);
+        assert.equals(cliffold.types, pap.types);
     }
 });
