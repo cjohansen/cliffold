@@ -1,6 +1,6 @@
 {
     "name": "cliffold",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Scaffolding for Node CLIs. Uses posix-argv-parser for kick-ass Posix compliant argv parsing, and adds convenience utilities for logging, pid files, overriding command line arguments from environment variables and more.",
     "main": "lib/cliffold.js",
     "scripts": {

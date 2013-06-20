@@ -70,11 +70,11 @@ buster.testCase("Cliffold", {
         assert.equals(cliffold.types, pap.types);
     },
 
-    "cli process formats help": function (done) {
+    "formats help": function (done) {
         this.cli.helpOpt("-h", "--help");
 
-        this.cli.exec([], {}, done(function (err, cp) {
-            assert.match(cp.formatHelp(), "--help");
+        this.cli.exec(["-q"], {}, done(function (err) {
+            assert.match(this.cli.formatHelp(), "--help");
         }.bind(this)));
     }
 });

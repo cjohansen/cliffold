@@ -119,6 +119,11 @@ cli.exec(process.argv.slice(2), process.env, function (err, cp) {
 });
 ```
 
+## `cli.formatHelp()`
+
+Formats help and returns it as a string. Useful e.g. when the cli fails for some
+reason.
+
 # The CLI process API
 
 ## `cp.isHandled`
@@ -133,8 +138,3 @@ provided.
 ## `cp.log`
 
 The logger object. An instance of [`Log`](https://npmjs.org/package/log).
-
-## `cp.formatHelp()`
-
-Formats help and returns it as a string. Useful e.g. when the cli fails for some
-reason.
