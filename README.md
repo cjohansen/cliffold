@@ -36,8 +36,8 @@ cli.pidFileOpt("-p", "--pid-file", process);
 
 // To make sure the pid file is also cleared when the process is forcefully
 // killed, add these listeners as well
-process.on("SIGINT", function () { process.exit(); });
-process.on("SIGTERM", function () { process.exit(); });
+process.on("SIGINT", function () { process.exit(1); });
+process.on("SIGTERM", function () { process.exit(1); });
 
 cli.exec(process.argv.slice(2), process.env, function (error, cliProcess) {
     cliProcess.options; // The posix-argv-parser parse result
@@ -104,8 +104,8 @@ specified file. Attempt to remove the file when the process shuts down. You will
 want to help out by adding these two listeners yourself:
 
 ```
-process.on("SIGINT", function () { process.exit(); });
-process.on("SIGTERM", function () { process.exit(); });
+process.on("SIGINT", function () { process.exit(1); });
+process.on("SIGTERM", function () { process.exit(1); });
 ```
 
 ## `cli.exec(args, environment, function (error, cp) {});`
